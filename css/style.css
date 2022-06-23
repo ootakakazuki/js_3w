@@ -85,13 +85,37 @@ header{
     position: relative;
 }
 
-ボタン押すと
-ul.acord{
-    visibility:hidden
+
+main ul li{
+    list-style: none;
+    padding: 2%;
+    background-color: antiquewhite;
+    transition: 
+        line-height .3s ease-out,
+        opacity      .1s linear,
+        visibility .1s linear ;
 }
 
-ul.vis-acd-li.acord{
+/*ボタン押すと*/
+ul.acord > li{
+    visibility:hidden;
+    opacity: 0;
+    transition:
+        line-height .2s ease-out,
+        opacity     .5s linear .1s,
+        visibility  .5s linear .1s;
+}
+
+
+ul.vis-acd-li.acord > li{
     visibility:visible;
+    opacity: 1;
+      /* 開くアニメーション */
+    transition:
+        line-height .3s ease-out,
+        opacity     .5s linear .1s,
+        visibility  .5s linear .1s;
+
 }
 
 
