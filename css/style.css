@@ -120,6 +120,42 @@ ul.vis-acd-li.acord > li{
 }
 
 
+.slide-show{
+    background-color: aquamarine;
+    display:flex;
+
+    justify-content: center;
+
+    background-repeat: no-repeat;
+
+    background-image: url("../images/ham.png");
+    background-position: 50% 0;
+
+}
+
+.fa-arrow-left, .fa-arrow-right{
+    position: relative;
+    padding: 7% 13%;
+    font-size: 3em;
+}
+
+
+/*
+.img1.visimg, .img2.visimg{
+    visibility: visible;
+}
+
+.img1, .img2{
+    visibility: hidden;
+}
+
+*/
+
+
+
+
+
+
 footer{
     background-color: black;
     width: 100%;
@@ -127,5 +163,10 @@ footer{
     text-align: center;
     padding: 1%;
 }
+
+
+
+
+
 
 

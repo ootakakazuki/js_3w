@@ -51,17 +51,47 @@ let showLength = (obj) => {
 let checkStrCount = (obj) => {
     if (obj.value.length > 30)
     {
+        obj.value.substr(30, 100)
         alert("文字数オーバー")
         return false;
     }
     return true;
 }
 
+let images_box = [
+    'url(../images/ham.png)',
+    'url(../images/batsu.png)',
+];
 
 
-// 文字数把握
+let fa_arrow_left = document.getElementsByClassName("fa-arrow-left");
+let fa_arrow_right = document.getElementsByClassName("fa-arrow-right");
+let c = 0;
+let slide_show = document.getElementById("slide-show");
+
+let change = () => {
+    slide_show.style.backgroundImage = images_box[c];
+}
 
 
+let slideShowBack = () => {
+    if (c == 0){
+        c = images_box.length;
+    }
+    c--;
+    console.log(c)
+    change(c);
+}
 
+let slideShowNext = () => {
+    if (c >= (images_box.length - 1)){
+        c = -1;
+    }
+    c++;
+    console.log(c)
+    change(c);
+}
 
+fa_arrow_left[0].addEventListener('click', slideShowBack);
+fa_arrow_right[0].addEventListener('click', slideShowNext);
 
