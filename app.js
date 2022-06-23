@@ -30,7 +30,6 @@ let aaa = document.getElementById("aaa")
 
 let acd = document.getElementById("acd")
 
-
 let acd_toggle = () => {
     acd.classList.toggle("vis-acd-li");
 }
@@ -38,6 +37,31 @@ let acd_toggle = () => {
 let acd_btn_id = document.getElementById("acd-btn-id")
 
 acd_btn_id.addEventListener('click', acd_toggle)
+
+let text_form = document.getElementById("text-form")
+
+let text_cla = document.getElementById("text-cla")
+
+let showLength = (obj) => {
+    if(checkStrCount(obj)){
+        text_cla.innerHTML = obj.value.length
+    }
+}
+
+let checkStrCount = (obj) => {
+    if (obj.value.length > 30)
+    {
+        alert("文字数オーバー")
+        return false;
+    }
+    return true;
+}
+
+
+
+// 文字数把握
+
+
 
 
 
