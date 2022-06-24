@@ -73,7 +73,6 @@ let change = () => {
     slide_show.style.backgroundImage = images_box[c];
 }
 
-
 let slideShowBack = () => {
     if (c == 0){
         c = images_box.length;
@@ -95,3 +94,88 @@ let slideShowNext = () => {
 fa_arrow_left[0].addEventListener('click', slideShowBack);
 fa_arrow_right[0].addEventListener('click', slideShowNext);
 
+
+
+/*  通信 */
+
+/*
+$.fn.jquery;
+*/
+
+//リクエストパラメーターのセット
+const KEY = 'AIzaSyBAqI-LiGZpGGS1NEoe0oB_Nvnjr6yjIw4' ;// APIKEY
+const ID = 'fADXsTe05zs' ;// 動画ID 15b1m2wehlU&t=4573s
+let url = 'https://www.googleapis.com/youtube/v3/videos'; // APIURL
+url += '?id=' + ID;
+url += '&key=' + KEY;
+url += '&part=snippet,contentDetails,statistics,status';
+
+//Ajax通信をする
+/*
+$(function(){
+    $.ajax({
+        url: url,
+        dataType: 'json'
+    }).done(function(data){
+        console.log("成功");
+        // サムネイル
+        $('#js-youtube-image').attr('src', data.items[0].snippet.thumbnails.medium.url);
+        
+    }).fail(function(data){
+        console.log("通信失敗");
+    });
+})
+*/
+
+$(function(){
+  $.ajax({
+    url: url,
+    dataType : 'json'
+  }).done(function(data){
+    console.log(data.items[0]);
+
+    // URL
+    $('#js-youtube-link').attr('href', `https://www.youtube.com/watch?v=fADXsTe05zs&t=25s${data.items[0].snippet.channelId}`);
+    
+    // サムネイル
+    $('#js-youtube-image').attr('src', data.items[0].snippet.thumbnails.medium.url);
+    
+    // タイトル
+    $('#js-youtube-link').append(data.items[0].snippet.title);
+
+    // チャンネル名
+    $('#js-youtube-channel').append(data.items[0].snippet.channelTitle);
+    
+    // チャンネルURL
+    const $youtubeChannel = $('#js-youtube-channel');
+    $youtubeChannel.attr('data-href', `https://www.youtube.com/channel/${data.items[0].snippet.channelId}`);
+    
+    // aタグ内で別のURLに遷移
+    $youtubeChannel.on('click', (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      window.open($('#js-youtube-channel').data('href'), '_blank');
+    });
+    
+    // 再生回数
+    $('#js-youtube-views').append(data.items[0].statistics.viewCount);
+
+/*
+    // 再生時間
+    let duration = data.items[0].contentDetails.duration;
+    let convertDuration = moment.duration(duration).format('hh:mm:ss');
+    $('#js-youtube-duration').append(convertDuration);
+ 
+    // 投稿日時
+    moment.locale('ja');
+    let date = data.items[0].snippet.publishedAt;
+    let convertDate = moment(date).fromNow();
+    $('#js-youtube-date').append(convertDate);
+*/    
+    // 説明
+    $('#js-youtube-description').append(data.items[0].snippet.description);
+    
+  }).fail(function(data){
+    console.log('通信に失敗しました。');
+  });
+});
