@@ -2,7 +2,9 @@
 <html lang="ja">
     <head>
         <meta charset="utf-8">
+<!--
         <link rel="stylesheet" href="css/reset.css">
+-->
         <link rel="stylesheet" href="css/style.css">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <script src="https://kit.fontawesome.com/930119a067.js" crossorigin="anonymous"></script>
@@ -27,70 +29,46 @@
             </nav>
         </header>
         <main>
+
             <button id="acd-btn-id" class="acd-btn">アコーディオン</button>
             <ul id="acd" class="acord">
                 <li>ああああああ</li>
                 <li>いいいいい</li>
                 <li>ううううううう</li>
             </ul>
-            <br><br><br><br><br>
             
             <div>
                 <p>30文字まで</p>
                 <form method="post" action="hogehoge.php">
-                    <textarea id="text-form" cols="30" rows="3" onkeyup="showLength(this)"></textarea>
+                    <textarea id="text-form" cols="30" rows="3" maxlength="30" onkeyup="showLength(this)"></textarea>
                 </form>
                 <span id="text-cla">0</span>
                 文字。
             </div>
-<!--            
-            <img class="slide-img img2" src="images/ham.png">
-            <img class="slide-img img1" src="images/batsu.png">
--->
             <div id="slide-show" class="slide-show">
                 <i class="fa-solid fa-arrow-left"></i>                
                 <i class="fa-solid fa-arrow-right"></i>
             </div>
             <br><br><br><br><br>
 
-            <table class="youtube-table" border="1">
-                <tr>
-                    <th>
-                        タイトル
-                    </th>
-                    <th>
-                        サムネイル
-                    </th>
-                    <th>
+            <div id="grid" class="grid">
+<!--
 
-                    </th>
-                    <th>
-                        再生数
-                    </th>
-                </tr>
-                <tr>
-                    <td>
-                        <a id="js-youtube-link"></a>
-                    </td>
-                    <td>
-                        <img id="js-youtube-image"></img>
-                    </td>
-                    <td>
-                        <div id="js-youtube-channel"></div>
-                    </td>
-                    <td>
-                        <div id="js-youtube-views"></div>
-                    </td>
-                </tr>
-            </table>
-            <div class="grid">
-                <div class="item a"></div>
+                <div class="item a">
+                    <img class="js-youtube-image"><br><br>
+                    <a class="js-youtube-link"></a>
+                    <div class="js-youtube-channel"></div>
+                    <div class="js-youtube-views">再生回数　　　</div>
+                </div>
                 <div class="item b"></div>
                 <div class="item c"></div>
                 <div class="item d"></div>
                 <div class="item e"></div>
                 <div class="item f"></div>
+                -->
             </div>
+
+
         </main>
         <footer>
             <p>©　2022 GFTD Works</p>
